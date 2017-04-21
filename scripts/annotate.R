@@ -50,10 +50,6 @@ This program requires the R packages 'data.table', 'docopt', 'purrr' and
 Ricard Argeluet and Davis McCarthy
 April 2017
 
-To-do:
-- Currently only input_format=2 is accepted
-- Currently only output_format=1 is accepted
-
 " -> doc
 
 options(warn = -1)
