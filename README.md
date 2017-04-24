@@ -22,6 +22,8 @@ If not, you can download a zip file of the repository by clicking the green "Clo
 
 ## Outline:
 
+We have two 1.5 hour sessions to work on single-cell methylation. Broadly, we will spend the first session on processing the raw sequence files to get summarized, annotated methylation results for genomic features of interest. In the second session we will analyze and plot these results to fulfill the goals above.
+
 1. We will use `BISMARK` for alignments and methylation calling. For details, see this [protocol paper](http://www.nature.com/nprot/journal/v12/n3/full/nprot.2016.187.html).
 2. QC (also see protocol paper)
     1.  Negative controls should not align
@@ -38,7 +40,7 @@ If not, you can download a zip file of the repository by clicking the green "Clo
     1. Dimension reduction    
     1. Clustering
 
-We will manage the data processing and analysis "pipeline" using [snakemake](http://snakemake.readthedocs.io/en/stable/).
+We will manage the data processing and analysis "pipeline" using [snakemake](http://snakemake.readthedocs.io/en/stable/). We will analyze our results in RStudio, using an [R Markdown](http://rmarkdown.rstudio.com) Notebook (see the `notebooks` folder in this repository for an example.)
 
 ## Data
 
