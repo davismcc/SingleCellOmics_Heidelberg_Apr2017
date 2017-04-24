@@ -96,7 +96,6 @@ main <- function(io, opts) {
         setTxtProgressBar(pb, counter)
         counter <- counter + 1
         sample <- i
-        samples_processed <- list.files(file.path(io$output_folder, "tmp"))
         ## Read and parse raw methylation data
         file_in <- file.path(io$input_folder, sample)
         dat_sample <- fread(sprintf("zcat < %s", file_in),
