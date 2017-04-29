@@ -1,0 +1,403 @@
+digraph snakemake_dag {
+    graph[bgcolor=white, margin=0];
+    node[shape=box, style=rounded, fontname=sans,                 fontsize=10, penwidth=2];
+    edge[penwidth=2, color=grey];
+	0[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	1[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	2[label = "trim_fastq\nsample: sample03_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	3[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	4[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	5[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	6[label = "fastqc_reports\nsample: sample02_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	7[label = "trim_fastq\nsample: sample09_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	8[label = "trim_fastq\nsample: sample06_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	9[label = "trim_fastq\nsample: sample02_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	10[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	11[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	12[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	13[label = "trim_fastq\nsample: sample13_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	14[label = "trim_fastq\nsample: sample01_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	15[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	16[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	17[label = "trim_fastq\nsample: sample02_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	18[label = "trim_fastq\nsample: sample03_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	19[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	20[label = "fastqc_reports\nsample: sample07_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	21[label = "fastqc_reports\nsample: sample12_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	22[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	23[label = "trim_fastq\nsample: sample01_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	24[label = "trim_fastq\nsample: sample08_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	25[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	26[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	27[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	28[label = "trim_fastq\nsample: sample08_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	29[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	30[label = "bismark_prepare_genome", color = "0.00 0.6 0.85", style="rounded,dashed"];
+	31[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	32[label = "trim_fastq\nsample: sample05_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	33[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	34[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	35[label = "trim_fastq\nsample: sample10_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	36[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	37[label = "trim_fastq\nsample: sample11_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	38[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	39[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	40[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	41[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	42[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	43[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	44[label = "fastqc_reports\nsample: sample06_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	45[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	46[label = "fastqc_reports\nsample: sample04_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	47[label = "all", color = "0.48 0.6 0.85", style="rounded,dashed"];
+	48[label = "trim_fastq\nsample: sample07_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	49[label = "fastqc_reports\nsample: sample10_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	50[label = "fastqc_reports\nsample: sample01_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	51[label = "trim_fastq\nsample: sample10_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	52[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	53[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	54[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	55[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	56[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	57[label = "trim_fastq\nsample: sample14_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	58[label = "fastqc_reports\nsample: sample05_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	59[label = "trim_fastq\nsample: sample12_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	60[label = "trim_fastq\nsample: sample15_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	61[label = "fastqc_reports\nsample: sample01_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	62[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	63[label = "trim_fastq\nsample: sample07_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	64[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	65[label = "trim_fastq\nsample: sample14_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	66[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	67[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	68[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	69[label = "fastqc_reports\nsample: sample15_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	70[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	71[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	72[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	73[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	74[label = "fastqc_reports\nsample: sample08_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	75[label = "fastqc_reports\nsample: sample13_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	76[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	77[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	78[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	79[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	80[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	81[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	82[label = "trim_fastq\nsample: sample09_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	83[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	84[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	85[label = "fastqc_reports\nsample: sample08_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	86[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	87[label = "fastqc_reports\nsample: sample03_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	88[label = "trim_fastq\nsample: sample11_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	89[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	90[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	91[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	92[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	93[label = "fastqc_reports\nsample: sample14_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	94[label = "trim_fastq\nsample: sample05_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	95[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	96[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	97[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	98[label = "trim_fastq\nsample: sample12_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	99[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	100[label = "fastqc_reports\nsample: sample05_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	101[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	102[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	103[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	104[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	105[label = "trim_fastq\nsample: sample06_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	106[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	107[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	108[label = "fastqc_reports\nsample: sample09_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	109[label = "annotate_methylation", color = "0.61 0.6 0.85", style="rounded,dashed"];
+	110[label = "fastqc_reports\nsample: sample07_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	111[label = "fastqc_reports\nsample: sample02_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	112[label = "fastqc_reports\nsample: sample11_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	113[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	114[label = "trim_fastq\nsample: sample04_R1", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	115[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	116[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	117[label = "trim_fastq\nsample: sample13_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	118[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	119[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	120[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	121[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	122[label = "fastqc_reports\nsample: sample10_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	123[label = "merge_methylation", color = "0.30 0.6 0.85", style="rounded,dashed"];
+	124[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	125[label = "fastqc_reports\nsample: sample09_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	126[label = "fastqc_reports\nsample: sample13_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	127[label = "fastqc_reports\nsample: sample11_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	128[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	129[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	130[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	131[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	132[label = "fastqc_reports\nsample: sample12_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	133[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	134[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	135[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	136[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	137[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	138[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	139[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	140[label = "fastqc_reports\nsample: sample15_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	141[label = "trim_fastq\nsample: sample04_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	142[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	143[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	144[label = "fastqc_reports\nsample: sample14_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	145[label = "fastqc_reports\nsample: sample06_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	146[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	147[label = "bismark_dedup", color = "0.55 0.6 0.85", style="rounded,dashed"];
+	148[label = "fastqc_reports\nsample: sample04_R1", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	149[label = "fastqc_reports\nsample: sample03_R2", color = "0.36 0.6 0.85", style="rounded,dashed"];
+	150[label = "multiqc", color = "0.24 0.6 0.85", style="rounded,dashed"];
+	151[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	152[label = "bismark_methylation", color = "0.12 0.6 0.85", style="rounded,dashed"];
+	153[label = "trim_fastq\nsample: sample15_R2", color = "0.06 0.6 0.85", style="rounded,dashed"];
+	154[label = "bismark", color = "0.42 0.6 0.85", style="rounded,dashed"];
+	114 -> 0
+	30 -> 0
+	84 -> 1
+	118 -> 3
+	63 -> 4
+	30 -> 4
+	134 -> 5
+	62 -> 10
+	30 -> 11
+	82 -> 11
+	31 -> 12
+	64 -> 15
+	52 -> 16
+	76 -> 19
+	137 -> 22
+	33 -> 25
+	56 -> 26
+	24 -> 27
+	30 -> 27
+	80 -> 29
+	14 -> 31
+	30 -> 31
+	83 -> 33
+	141 -> 34
+	30 -> 34
+	146 -> 36
+	124 -> 38
+	129 -> 39
+	115 -> 40
+	4 -> 41
+	71 -> 42
+	86 -> 43
+	2 -> 45
+	30 -> 45
+	109 -> 47
+	150 -> 47
+	94 -> 52
+	30 -> 52
+	41 -> 53
+	32 -> 54
+	30 -> 54
+	96 -> 55
+	102 -> 56
+	99 -> 62
+	78 -> 64
+	5 -> 66
+	60 -> 67
+	30 -> 67
+	90 -> 68
+	89 -> 70
+	35 -> 71
+	30 -> 71
+	39 -> 72
+	135 -> 73
+	81 -> 76
+	30 -> 77
+	28 -> 77
+	57 -> 78
+	30 -> 78
+	130 -> 79
+	154 -> 80
+	37 -> 81
+	30 -> 81
+	30 -> 83
+	8 -> 83
+	0 -> 84
+	34 -> 86
+	91 -> 89
+	30 -> 90
+	13 -> 90
+	65 -> 91
+	30 -> 91
+	128 -> 92
+	68 -> 95
+	67 -> 96
+	147 -> 97
+	59 -> 99
+	30 -> 99
+	153 -> 101
+	30 -> 101
+	23 -> 102
+	30 -> 102
+	131 -> 103
+	51 -> 104
+	30 -> 104
+	36 -> 106
+	119 -> 107
+	123 -> 109
+	116 -> 113
+	7 -> 115
+	30 -> 115
+	27 -> 116
+	151 -> 118
+	143 -> 119
+	12 -> 120
+	22 -> 121
+	1 -> 123
+	38 -> 123
+	3 -> 123
+	120 -> 123
+	121 -> 123
+	79 -> 123
+	97 -> 123
+	107 -> 123
+	15 -> 123
+	19 -> 123
+	95 -> 123
+	53 -> 123
+	10 -> 123
+	55 -> 123
+	72 -> 123
+	136 -> 123
+	29 -> 123
+	25 -> 123
+	26 -> 123
+	142 -> 123
+	92 -> 123
+	139 -> 123
+	103 -> 123
+	106 -> 123
+	152 -> 123
+	70 -> 123
+	66 -> 123
+	73 -> 123
+	43 -> 123
+	113 -> 123
+	104 -> 124
+	54 -> 128
+	9 -> 129
+	30 -> 129
+	11 -> 130
+	45 -> 131
+	138 -> 133
+	98 -> 134
+	30 -> 134
+	77 -> 135
+	133 -> 136
+	117 -> 137
+	30 -> 137
+	48 -> 138
+	30 -> 138
+	42 -> 139
+	40 -> 142
+	17 -> 143
+	30 -> 143
+	88 -> 146
+	30 -> 146
+	101 -> 147
+	1 -> 150
+	2 -> 150
+	3 -> 150
+	6 -> 150
+	7 -> 150
+	8 -> 150
+	9 -> 150
+	10 -> 150
+	13 -> 150
+	88 -> 150
+	15 -> 150
+	100 -> 150
+	17 -> 150
+	132 -> 150
+	20 -> 150
+	21 -> 150
+	23 -> 150
+	24 -> 150
+	25 -> 150
+	26 -> 150
+	28 -> 150
+	29 -> 150
+	32 -> 150
+	37 -> 150
+	38 -> 150
+	43 -> 150
+	44 -> 150
+	142 -> 150
+	46 -> 150
+	103 -> 150
+	48 -> 150
+	49 -> 150
+	107 -> 150
+	51 -> 150
+	53 -> 150
+	55 -> 150
+	58 -> 150
+	59 -> 150
+	60 -> 150
+	61 -> 150
+	63 -> 150
+	94 -> 150
+	66 -> 150
+	126 -> 150
+	70 -> 150
+	72 -> 150
+	73 -> 150
+	74 -> 150
+	75 -> 150
+	79 -> 150
+	139 -> 150
+	82 -> 150
+	85 -> 150
+	87 -> 150
+	14 -> 150
+	92 -> 150
+	93 -> 150
+	50 -> 150
+	95 -> 150
+	97 -> 150
+	98 -> 150
+	144 -> 150
+	145 -> 150
+	105 -> 150
+	106 -> 150
+	108 -> 150
+	110 -> 150
+	112 -> 150
+	113 -> 150
+	114 -> 150
+	117 -> 150
+	120 -> 150
+	121 -> 150
+	122 -> 150
+	125 -> 150
+	69 -> 150
+	127 -> 150
+	18 -> 150
+	111 -> 150
+	136 -> 150
+	65 -> 150
+	140 -> 150
+	141 -> 150
+	35 -> 150
+	19 -> 150
+	57 -> 150
+	148 -> 150
+	149 -> 150
+	152 -> 150
+	153 -> 150
+	105 -> 151
+	30 -> 151
+	16 -> 152
+	18 -> 154
+	30 -> 154
+}            

@@ -37,7 +37,7 @@ library(pcaMethods)
 Load the summarized results in `../results/all.tsv.gz`.
 
 ```{r load-data}
-df <- read_tsv("../results/archive/all.tsv.gz", col_types = cols())
+df <- read_tsv("../results/all.tsv.gz", col_types = cols())
 df <- mutate(df, sample = gsub(".tsv.gz", "", sample))
 ```
 
@@ -51,8 +51,7 @@ colnames(df_meta) <- c("sample", "cell_type")
 Add cell type information to methylation data frame.
 
 ```{r add-cell-type}
-df <- left_join(df, df_meta)
-head(df)
+
 ```
 
 # Clustering of cells by methylation profile
@@ -63,21 +62,11 @@ view cells in a lower-dimensional space. Here we only use enhancers with less
 than 50% missing values
 
 ```{r gather-enhancers}
-mat_enhancers <- filter(df, anno == "active_enhancers") %>% 
-    select(sample, rate, id) %>% spread(key = id, value = rate)
-prop_na <- apply(mat_enhancers, 2, function(x) mean(is.na(x)))
-mat_enhancers <- mat_enhancers[, prop_na < 0.5]
+
 ```
 
 ```{r pca-enhancers}
-pca_enhancers <- pca(mat_enhancers, method = "ppca", scale = "uv")
-df_pca_enhancers <- merge(scores(pca_enhancers), df_meta, by = 0)
-ggplot(df_pca_enhancers, aes(PC1, PC2, shape = cell_type, color = cell_type)) +
-    geom_point(size = 3, alpha = 0.8) +
-    scale_color_manual(values = wes_palette("GrandBudapest")) + 
-    xlab(paste("PC1", round(pca_enhancers@R2[1] * 100), "% of variance")) +
-    ylab(paste("PC2", round(pca_enhancers@R2[2] * 100), "% of variance")) +
-    theme_classic()
+
 ```
 
 Here, the first principal component separates the cells by cell type (E4.5 and 
@@ -96,9 +85,7 @@ variance of the methylation rate across annotation categories.
 ### Mean and variance of methylation rate across all cells
 
 ```{r meanvar-rate}
-df_mean_var <- df %>% group_by(id, anno) %>% 
-    summarise(mean_methyl_rate = mean(rate), var_methyl_rate = var(rate),
-              sd_methyl_rate = sd(rate))
+
 ```
 
 
@@ -108,13 +95,7 @@ whereas repetetive elements (IAP) are frequently highly methylated. Enhancer
 regions commonly have moderate (25-50%) methylation.
 
 ```{r plot-mean-rate}
-ggplot(df_mean_var, aes(x = anno, y = mean_methyl_rate, colour = anno)) +
-    geom_violin(scale = "width") +
-    geom_quasirandom(size = 0.5, alpha = 0.5) + 
-    scale_color_manual(values = wes_palette("Darjeeling")) + 
-    xlab("Genomic feature") + ylab("Mean methylation rate") +
-    ggtitle("Mean methylation rate by genomic feature") +
-    coord_flip() + theme_bw()
+
 ```
 
 We can also examine the variance of methylation rate across classes of genomic 
@@ -126,21 +107,13 @@ deviations: some elements have very low variance in methylation rate, while
 others have very high variance.
 
 ```{r plot-var-rate}
-ggplot(df_mean_var, aes(x = anno, y = sd_methyl_rate, colour = anno)) +
-    geom_violin(scale = "width") +
-    geom_quasirandom(size = 0.5, alpha = 0.5) + 
-    scale_color_manual(values = wes_palette("Darjeeling")) + 
-    xlab("Genomic feature") + ylab("Standard deviation of methylation rate") +
-    ggtitle("Standard deviation of methylation rate by genomic feature") +
-    coord_flip() + theme_bw()
+
 ```
 
 ### Mean and variance of methylation rate by cell type
 
 ```{r meanvar-rate-cell}
-df_mean_var_by_celltype <- df %>% group_by(id, anno, cell_type) %>% 
-    summarise(mean_methyl_rate = mean(rate), var_methyl_rate = var(rate),
-              sd_methyl_rate = sd(rate))
+
 ```
 
 
@@ -158,14 +131,7 @@ are generally lowly methylated, but show slightly more methylation in E6.5 cells
 
 
 ```{r plot-mean-rate-cell, fig.width=5}
-ggplot(df_mean_var_by_celltype, aes(x = anno, y = mean_methyl_rate, colour = anno)) +
-    geom_violin(scale = "width") +
-    geom_quasirandom(size = 0.5, alpha = 0.5) + 
-    facet_wrap(~cell_type, ncol = 2) +
-    scale_color_manual(values = wes_palette("Darjeeling")) + 
-    xlab("Genomic feature") + ylab("Mean methylation rate") +
-    ggtitle("Mean methylation rate for genomic features by cell type") +
-    coord_flip() + theme_bw()
+
 ```
 
 Examination of the variance of methylation rate across classes of genomic 
@@ -179,14 +145,7 @@ variance in E6.5 cells. In both cell types, CpG islands typically have very low
 variance of methylation rate. 
 
 ```{r plot-var-rate-cell, fig.width=5}
-ggplot(df_mean_var_by_celltype, aes(x = anno, y = sd_methyl_rate, colour = anno)) +
-    geom_violin(scale = "width") +
-    geom_quasirandom(size = 0.5, alpha = 0.5) + 
-    facet_wrap(~cell_type, ncol = 2) +
-    scale_color_manual(values = wes_palette("Darjeeling")) + 
-    xlab("Genomic feature") + ylab("Standard deviation of methylation rate") +
-    ggtitle("Standard deviation of methylation rate by genomic feature") +
-    coord_flip() + theme_bw()
+
 ```
 
 These analyses demonstrate the context specificity of methylation variance. In 

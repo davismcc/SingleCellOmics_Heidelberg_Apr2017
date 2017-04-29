@@ -58,8 +58,9 @@ suppressMessages(library(purrr))
 suppressMessages(library(stringr))
 
 main <- function(io, opts) {
-    # Load samples to be kept
-    opts$samples <- dir(io$input_folder)
+    ## Load samples to be kept
+    samp <- dir(io$input_folder)
+    opts$samples <- samp[grep(".tsv.gz", samp)]
     stopifnot(!anyDuplicated(opts$samples))
     ## Start processing ##
     cat("\nProcessing methylation samples with the following options:\n")
@@ -69,11 +70,11 @@ main <- function(io, opts) {
     cat(sprintf("- Annotations: %s\n", paste(opts$annos, collapse = " ")))
     cat(sprintf("- Valid chromosomes: %s\n",
                 paste(opts$chr_list, collapse = " ")))
-    cat(sprintf("- Samples: %s\n", paste(opts$chr_list, collapse = " ")))
+    cat(sprintf("- Samples: %s\n", paste(opts$samples, collapse = " ")))
     cat("\n")
     ## annotations
     anno_list <- list()
-    for (i in opts$anno) {
+    for (i in opts$annos) {
         # Read annotation file
         anno.file <- sprintf("%s/%s.bed", io$anno_folder, i)
         dat_anno <- fread(anno.file, sep = "\t", header = FALSE,
@@ -99,7 +100,13 @@ main <- function(io, opts) {
         ## Read and parse raw methylation data
         file_in <- file.path(io$input_folder, sample)
         dat_sample <- fread(sprintf("zcat < %s", file_in),
-            sep = "\t", header = TRUE, verbose = FALSE, showProgress = FALSE)
+                            sep = "\t", header = TRUE, verbose = FALSE,
+                            showProgress = FALSE)
+        dat_sample[["rate"]] <- (dat_sample[["met_reads"]] /
+                                      (dat_sample[["met_reads"]] +
+                                       dat_sample[["nonmet_reads"]]))
+        dat_sample[["chr"]] <- as.character(dat_sample[["chr"]])
+        dat_sample <- dat_sample[, c("chr", "pos", "rate")]
         colnames(dat_sample) <- c("chr", "pos", "rate")
         # Remove weird chromosomes and add 'start' and 'end' columns for overlap
         dat_sample <- dat_sample[chr %in% opts$chr_list, ] %>%
@@ -161,5 +168,5 @@ main(io, opts)
 
 ## io <- list()
 ## io$anno_folder <- "annotation"
-## io$input_folder <- "scbssseq_data"
+## io$input_folder <- "data/bismark/merged"
 ## io$output_folder <- "results"

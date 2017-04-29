@@ -42,50 +42,29 @@ April 2017
 
 library(purrr)
 library(data.table)
+library(readr)
 
 main <- function(indir, outdir) {
     filenames <- list.files(indir, pattern = "(cov.gz)$")
-    samples <- unique(sapply(strsplit(filenames, split = "_"), "[[", 2))
+    samples <- unique(sapply(strsplit(filenames, split = "_"), "[[", 1))
     for (i in 1:length(samples)) {
         print(sprintf("%s (%d/%d)", samples[i], i, length(samples)))
         fname.in <- sprintf("%s/%s", indir, filenames[grep(samples[i],
             filenames)])
         if (length(fname.in) == 2) {
-            dat1 <- fread(sprintf("zcat %s", fname.in[1]), sep = "\t",
-                header = FALSE, select = c(1, 2, 5, 6),
-                stringsAsFactors = TRUE, verbose = FALSE)
-            dat2 <- fread(sprintf("zcat %s", fname.in[2]), sep = "\t",
-             header = FALSE, select = c(1, 2, 5, 6), stringsAsFactors = TRUE,
-              verbose = FALSE)
+            dat1 <- readr::read_tsv(fname.in[1], col_names = FALSE,
+                                    col_types = "ii--ii")
+            dat1 <- as.data.table(dat1)
+            dat2 <- readr::read_tsv(fname.in[2], col_names = FALSE,
+                                    col_types = "ii--ii")
+            dat2 <- as.data.table(dat2)
             colnames(dat1) <- c("chr", "pos", "met_reads", "nonmet_reads")
             colnames(dat2) <- c("chr", "pos", "met_reads", "nonmet_reads")
             dat <- rbind(dat1, dat2) %>% .[, .(met_reads = sum(met_reads),
                 nonmet_reads = sum(nonmet_reads)), by = c("chr", "pos")] %>%
-                 setkey(chr, pos)
-        ## In some cases, samples have four files (WHY?)
-        } else if (length(fname.in) == 4) {
-            dat1 <- fread(sprintf("zcat %s", fname.in[1]), sep = "\t",
-                header = FALSE, select = c(1, 2, 5, 6),
-                stringsAsFactors = TRUE, verbose = FALSE)
-            dat2 <- fread(sprintf("zcat %s", fname.in[2]), sep = "\t",
-                header = FALSE, select = c(1, 2, 5, 6), stringsAsFactors = TRUE,
-                verbose = FALSE)
-            dat3 <- fread(sprintf("zcat %s", fname.in[3]), sep = "\t",
-                header = FALSE, select = c(1, 2, 5, 6),
-                stringsAsFactors = TRUE, verbose = FALSE)
-            dat4 <- fread(sprintf("zcat %s", fname.in[4]), sep = "\t",
-                header = FALSE, select = c(1, 2, 5, 6),
-                stringsAsFactors = TRUE, verbose = FALSE)
-            colnames(dat1) <- c("chr", "pos", "met_reads", "nonmet_reads")
-            colnames(dat2) <- c("chr", "pos", "met_reads", "nonmet_reads")
-            colnames(dat3) <- c("chr", "pos", "met_reads", "nonmet_reads")
-            colnames(dat4) <- c("chr", "pos", "met_reads", "nonmet_reads")
-            dat <- rbind(dat1, dat2, dat3, dat4) %>%
-             .[, .(met_reads = sum(met_reads),
-             nonmet_reads = sum(nonmet_reads)), by = c("chr", "pos")] %>%
-              setkey(chr, pos)
+                setkey(chr, pos)
         } else {
-            stop("error")
+            stop("error: expecting two files R1/R2 to merge per sample")
         }
         fwrite(dat, file = sprintf("%s/%s.tsv", outdir, samples[i]),
             sep = "\t", showProgress = FALSE, verbose = FALSE, col.names = TRUE)
@@ -101,3 +80,4 @@ cat("output folder: ", opts$output_folder, "\n")
 
 ## Run main function
 main(opts$input_folder, opts$output_folder)
+
