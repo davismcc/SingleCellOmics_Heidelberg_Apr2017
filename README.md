@@ -51,7 +51,7 @@ However, in case that data is unavailable for any reason and to have an alternat
 1. Raw `fastq` files are available at this [link](https://www.dropbox.com/sh/1wy3gw7fpil73dd/AADIOGvbsYNdt45KnaHahmqqa?dl=0) (6GB; password required, which will be shared on the course Slack channel). Only if you want to work from raw `fastq` files (substantial computation needed) and have a high-bandwidth connection, download the files at the link and save to `data/fastq`.
 1. Raw `fastq` files for a "test" dataset (sampling 500,000 reads from each of
 the above `fastq` files), smaller in size so a little more convenient, are 
-available at this [link]{https://www.dropbox.com/sh/s0dmlgg0cmxak9y/AAAC4NK_Bz2rSN7kYJfJcloRa?dl=0}
+available at this [link](https://www.dropbox.com/sh/s0dmlgg0cmxak9y/AAAC4NK_Bz2rSN7kYJfJcloRa?dl=0)
 (210MB; password required).
 1. Merged `Bismark` files are available at this [link](https://www.dropbox.com/sh/b3v55pdkkimo13s/AAA4gH-6uCxMqFSbFM72rwLna?dl=0) (76MB; password required). Download and copy these to `data/bismark/merged`.
 1. Summarized, annotated methylation results that we will use for analysis are available in the results folder of this repository (we will generate these ourselves during the course).
