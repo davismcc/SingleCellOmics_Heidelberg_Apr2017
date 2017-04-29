@@ -69,3 +69,11 @@ available at this [link](https://www.dropbox.com/sh/s0dmlgg0cmxak9y/AAAC4NK_Bz2r
 * [`FastQC`](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * [`MultiQC`](http://multiqc.info/)
 * [`MethylQA`](http://methylqa.sourceforge.net/index.php)
+
+
+## Acknowledgements
+
+Many thanks to Stephen Clark and Ricard Argeluet for help and advice. Stephen
+advised on the course aims and structure and directed generation of raw data. 
+Ricard provided advice on analysis and provided data processing scripts and 
+processed datasets for use.
