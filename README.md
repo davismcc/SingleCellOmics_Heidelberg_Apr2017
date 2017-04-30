@@ -54,7 +54,11 @@ the above `fastq` files), smaller in size so a little more convenient, are
 available at this [link](https://www.dropbox.com/sh/s0dmlgg0cmxak9y/AAAC4NK_Bz2rSN7kYJfJcloRa?dl=0)
 (210MB; password required).
 1. Merged `Bismark` files are available at this [link](https://www.dropbox.com/sh/b3v55pdkkimo13s/AAA4gH-6uCxMqFSbFM72rwLna?dl=0) (76MB; password required). Download and copy these to `data/bismark/merged`.
-1. Summarized, annotated methylation results that we will use for analysis are available in the results folder of this repository (we will generate these ourselves during the course).
+1. Summarized, annotated methylation results that we will use for analysis are
+available in the results folder of this repository (we will generate these 
+ourselves during the course). A version of this file, `results/all.tsv.gz` that
+has already been computed is available at this [link](https://www.dropbox.com/s/dq7x4ohu5zxw5n9/all.tsv.gz?dl=0) (3.5MB)
+in case you wish to use it for the second part of the analysis.
 
 
 ## Software requirements:
