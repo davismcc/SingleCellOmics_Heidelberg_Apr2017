@@ -77,7 +77,7 @@ in case you wish to use it for the second part of the analysis.
 
 ## Acknowledgements
 
-Many thanks to Stephen Clark and Ricard Argeluet for help and advice. Stephen
+Many thanks to Stephen Clark and Ricard Argelaguet for help and advice. Stephen
 advised on the course aims and structure and directed generation of raw data. 
 Ricard provided advice on analysis and provided data processing scripts and 
 processed datasets for use.
